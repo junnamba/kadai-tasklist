@@ -62,7 +62,7 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-         $message = Task::findOrFail($id);
+         $task = Task::findOrFail($id);
 
         return view('tasks.show', [
              'task' => $task,
@@ -93,7 +93,7 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $task = new Task;
+        $task = task::findOrFail($id);
         $task->content = $request->content;
         $task->save();
 
