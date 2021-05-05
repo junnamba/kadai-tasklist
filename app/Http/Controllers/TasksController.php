@@ -12,22 +12,27 @@ class TasksController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     **/
     public function index()
     {
         $tasks = Task::all();
+        
+         return view('tasks.index', [
+            'tasks' => $tasks,
+        ]);
     }
-
+    
+    
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+     
+      public function create()
     {
-         $task = new Task;
-
-        
+        $task = new Task;
+    
         return view('tasks.create', [
             'task' => $task,
         ]);
