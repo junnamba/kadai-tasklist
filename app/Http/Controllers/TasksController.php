@@ -41,7 +41,12 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = new Task;
+        $task->content = $request->content;
+        $task->save();
+
+    
+        return redirect('/');
     }
 
     /**
@@ -83,7 +88,12 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = new Task;
+        $task->content = $request->content;
+        $task->save();
+
+    
+        return redirect('/');
     }
 
     /**
@@ -94,6 +104,11 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $task = Task::findOrFail($id);
+        
+        $task->delete();
+
+    
+        return redirect('/');
     }
 }
